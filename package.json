@@ -1,0 +1,21 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "scripts": {
+    "dev": "nodemon --ext stil,md,vue --watch src/.vuepress --watch . --exec \"vuepress dev src\"",
+    "build": "vuepress build src"
+  },
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.2.0",
+    "nodemon": "^2.0.4",
+    "vuepress": "1.5.0",
+    "vuepress-theme-reco": "1.4.7"
+  },
+  "dependencies": {
+    "vue-class-component": "^7.2.3",
+    "vue-disqus": "^4.0.1",
+    "vue-feather-icons": "^5.0.0"
+  },
+  "description": ""
+}
