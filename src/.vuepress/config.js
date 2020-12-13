@@ -2,7 +2,7 @@ module.exports = {
   title: "ConspiraFuentes",
   description: '',
   theme: '@vuepress/blog',
-  base: "/blog",
+  base: "/blog/",
   dest: "blog",
   themeConfig: {
     nav: [
