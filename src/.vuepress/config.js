@@ -2,6 +2,7 @@ module.exports = {
   title: "ConspiraFuentes",
   description: '',
   theme: '@vuepress/blog',
+  dest: "blog",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },

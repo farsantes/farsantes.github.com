@@ -1,7 +1,4 @@
 {
-  "name": "my-blog",
-  "version": "1.0.0",
-  "author": "reco_luan",
   "scripts": {
     "dev": "nodemon --ext stil,md,vue --watch src/.vuepress --watch . --exec \"vuepress dev src\"",
     "build": "vuepress build src"
@@ -16,6 +13,5 @@
     "vue-class-component": "^7.2.3",
     "vue-disqus": "^4.0.1",
     "vue-feather-icons": "^5.0.0"
-  },
-  "description": ""
+  }
 }
