@@ -21,7 +21,7 @@
 
         <router-link :to="page.path">
           <v-img
-            :src="page.frontmatter.image"
+            :src="$withBase(page.frontmatter.image)"
             width="100px"
             height="100px"
             style="margin-right: 10px"

@@ -18,7 +18,11 @@
         </h1>
       </header>
 
-      <img :src="$frontmatter.image" onerror="this.style.display='none'" />
+      <img
+        v-if="$frontmatter.image"
+        :src="$withBase($frontmatter.image)"
+        onerror="this.style.display='none'"
+      />
 
       <Content itemprop="articleBody" />
 
