@@ -1,23 +1,26 @@
 ---
-image: jim-humble.jpg
+image: /jim-humble.jpg
 title: Jim Humble
-score: "-5"
+audience: 6.000 (pacientes)
 tags: 
-  - jim-humble
   - mms
 ---
-## Jim Humble
-<img src="/jim-humble.jpg" />
 
-Ingeniero estadounidense.
+### Estudios:
 
-Dice que descubrió que el Dióxido de Cloro **ClO<sub>2</sub>** cura la malária mientras buscaba oro en Amércia del Sur en 1996.
+Ingeniero de los estados unidos.
 
-Fundó su propia religión y una iglesia llamada **Génesis II, Iglesia de Salud y Sanación**.
+### Profesión:
+
+'Descubrió' que el Dióxido de Cloro **ClO<sub>2</sub>** cura la malária mientras buscaba oro en Amércia del Sur en 1996.
+
+### Biografía:
+
+Ex-miembro de la Iglesia de la Cienciología, fundó su propia religión y una iglesia llamada **Génesis II, Iglesia de Salud y Sanación**.
 
 Auto-proclamado Dios de mil millones de años que viene de la Galaxia Andrómeda.
 
-### CITAS
+### Declaraciones
 
 "Me di cuenta de que encontré 'oro real' cuando descubrí MMS"
 

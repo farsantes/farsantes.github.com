@@ -1,0 +1,21 @@
+{
+  "git.enableSmartCommit": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.codeLens": false,
+  "files.trimFinalNewlines": true,
+  "editor.rulers": [
+    80,
+    100,
+    120
+  ],
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.dragAndDrop": false,
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  }
+}

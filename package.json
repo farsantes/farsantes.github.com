@@ -1,17 +1,18 @@
 {
   "scripts": {
-    "dev": "nodemon --ext stil,md,vue --watch src/.vuepress --watch . --exec \"vuepress dev src\"",
+    "dev": "nodemon -w src -w src/.vuepress -e md,js,vue,styl --exec 'vuepress dev src'",
     "build": "vuepress build src"
   },
-  "devDependencies": {
-    "@vuepress/theme-blog": "^2.2.0",
-    "nodemon": "^2.0.4",
-    "vuepress": "1.5.0",
-    "vuepress-theme-reco": "1.4.7"
-  },
   "dependencies": {
-    "vue-class-component": "^7.2.3",
-    "vue-disqus": "^4.0.1",
-    "vue-feather-icons": "^5.0.0"
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@mdi/font": "^5.8.55",
+    "@vuepress/plugin-pwa": "^1.7.1",
+    "@vuepress/plugin-search": "^1.7.1",
+    "@vuepress/theme-blog": "^2.3.2",
+    "vuepress": "^1.7.1",
+    "vuetify": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
