@@ -38,6 +38,7 @@ module.exports = () => {
         },
       },
     }],
+    ['@vuepress/google-analytics', { ga: 'UA-55973471-7' }],
     '@vuepress/search',
     '@vuepress/medium-zoom',
     '@vuepress/plugin-nprogress',
