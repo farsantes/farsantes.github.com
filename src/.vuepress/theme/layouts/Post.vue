@@ -26,9 +26,7 @@
 
       <Content itemprop="articleBody" />
 
-      <footer>
-        <Comment />
-      </footer>
+      <script src="https://embedd.io/embedd.min.js"></script>
 
       <v-divider style="margin-top: 30px; margin-bottom: 5px" />
 
@@ -38,21 +36,23 @@
         </v-icon>
         volver
       </v-btn>
-
-      <script src="https://embedd.io/embedd.min.js"></script>
     </article>
   </div>
 </template>
 
 <script>
 import PostMeta from "@theme/components/PostMeta.vue";
-import { Comment } from "@vuepress/plugin-blog/lib/client/components";
 
 export default {
   components: {
     PostMeta,
-    Comment,
   },
+  // https://stackoverflow.com/questions/45047126/how-to-add-external-js-scripts-to-vuejs-components
+  // mounted() {
+  //   let recaptchaScript = document.createElement("script");
+  //   recaptchaScript.setAttribute("src", "https://embedd.io/embedd.min.js");
+  //   document.body.appendChild(recaptchaScript);
+  // },
 };
 </script>
 

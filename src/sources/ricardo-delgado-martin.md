@@ -19,5 +19,5 @@ El título carece de validez académica si no se tiene un grado o licenciatura u
 
 ### Actividad:
 
-Tiene un canal de youtube llamado "La quinta columna". En su canal habla de teams como:
+Tiene un canal de youtube llamado "La quinta columna". En su canal habla de temas como:
 - Conspiración conjunta del **5g** con la vacuna del **covid**

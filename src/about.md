@@ -17,8 +17,8 @@ Todas las fuentes las obtengo de las teorías que cree y comparte mi família en
 Mi nombre es Oscar Gardiazabal, soy Arquitecto e Ingeniero de Software.
 Desarrollo herramientas que faciliten la vida de las personas y mejoren el mundo.
 
-<img src="/about.jpeg">
+<img :src="$withBase('/about.jpeg')">
 
 ### Código Abierto
 
-Esta página está realizada en Vuepress con Vuetify y el código está en [farsantes.github.com](https://farsantes.github.com) para quien quiera usarlo o colaborar.
+Esta página está realizada en Vuepress con Vuetify y el código está en [github.com/farsantes/farsantes.github.com](https://github.com/farsantes/farsantes.github.com) para quien quiera usarlo o colaborar.
