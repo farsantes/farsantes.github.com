@@ -26,7 +26,8 @@
 
       <Content itemprop="articleBody" />
 
-      <script src="https://embedd.io/embedd.min.js"></script>
+      <!-- <script src="https://embedd.io/embedd.min.js"></script> -->
+      <div ref="comments"></div>
 
       <v-divider style="margin-top: 30px; margin-bottom: 5px" />
 
@@ -48,11 +49,12 @@ export default {
     PostMeta,
   },
   // https://stackoverflow.com/questions/45047126/how-to-add-external-js-scripts-to-vuejs-components
-  // mounted() {
-  //   let recaptchaScript = document.createElement("script");
-  //   recaptchaScript.setAttribute("src", "https://embedd.io/embedd.min.js");
-  //   document.body.appendChild(recaptchaScript);
-  // },
+  mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute("src", "https://embedd.io/embedd.min.js");
+    this.$refs.comments.innerHTML = "";
+    this.$refs.comments.appendChild(recaptchaScript);
+  },
 };
 </script>
 
