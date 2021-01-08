@@ -15,7 +15,7 @@ Todas las fuentes las obtengo de las teorías que cree y comparte mi família en
 ### Quien soy?
 
 Mi nombre es Oscar Gardiazabal, soy Arquitecto e Ingeniero de Software.
-Desarrollo herramientas que faciliten la vida de las personas y mejoren el mundo.
+Me gusta desarrollar herramientas que faciliten la vida de las personas y mejoren el mundo.
 
 <img :src="$withBase('/about.jpeg')">
 
