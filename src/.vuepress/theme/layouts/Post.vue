@@ -26,8 +26,8 @@
 
       <Content itemprop="articleBody" />
 
-      <!-- <script src="https://embedd.io/embedd.min.js"></script> -->
-      <div ref="comments"></div>
+      <br />
+      <div id="supercomments"></div>
 
       <v-divider style="margin-top: 30px; margin-bottom: 5px" />
 
@@ -48,12 +48,42 @@ export default {
   components: {
     PostMeta,
   },
-  // https://stackoverflow.com/questions/45047126/how-to-add-external-js-scripts-to-vuejs-components
   mounted() {
-    let recaptchaScript = document.createElement("script");
-    recaptchaScript.setAttribute("src", "https://embedd.io/embedd.min.js");
-    this.$refs.comments.innerHTML = "";
-    this.$refs.comments.appendChild(recaptchaScript);
+    // https://github.com/supercomments/supercomments
+    var code = window.location.href.match(/.*#access_token=(.[^&]+)/);
+    var csrf = window.location.href.match(/.*&state=(.[^&]+)/);
+    var expires = window.location.href.match(/.*&expires_in=(.[^&]+)/);
+    if (code && csrf) {
+      window.opener.postMessage(
+        {
+          type: "RedditAuthenticated",
+          token: code[1],
+          state: csrf[1],
+          expires: expires[1],
+        },
+        "*"
+      );
+      window.close();
+    }
+
+    window.supercommentsConfig = {
+      url: window.location.href,
+      reddit: {
+        consumerKey: "3LNiyg9eV6L60g",
+        redirectUri: window.location.origin,
+      },
+      disqus: {
+        // identifier: [your_disqus_id_(optional)],
+        shortName: "farsantes",
+      },
+    };
+
+    var script = document.createElement("script");
+    if (script) {
+      // script.type = "text/javascript";
+      script.src = this.$withBase("/supercomments-embed.min.js");
+      document.head.appendChild(script);
+    }
   },
 };
 </script>

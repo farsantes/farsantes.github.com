@@ -1,7 +1,9 @@
 {
   "scripts": {
     "dev": "nodemon -w src -w src/.vuepress -e md,js,vue,styl --exec 'vuepress dev src'",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "traefik": "docker ps --filter name=traefik -aq | xargs docker stop | xargs docker rm || true && docker-compose -f docker-compose-traefik.yml up --build -d",
+    "nginx": "npm run build && npm run traefik && docker-compose up --build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -9,6 +11,7 @@
     "@vuepress/plugin-pwa": "^1.7.1",
     "@vuepress/plugin-search": "^1.7.1",
     "@vuepress/theme-blog": "^2.3.2",
+    "supercomments": "^2.0.2",
     "vuepress": "^1.7.1",
     "vuetify": "^2.4.0"
   },

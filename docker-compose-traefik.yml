@@ -1,0 +1,47 @@
+version: "2.1"
+# version: "3.7"
+
+services:
+
+  # https://containo.us/blog/traefik-2-0-docker-101-fc2893944b9d/
+  # http://localhost:8080/dashboard
+  traefik:
+    container_name: traefik
+    # image: traefik:v1.7.12
+    image: traefik:v2.2
+    command:
+      - "--api=true"
+      - "--api.dashboard=true"
+      # - "--defaultentrypoints=https,http"
+      # - "--entryPoints=Name:http Address::80"
+      # - "--entryPoints=Name:https Address::443 TLS"
+      # - "--docker.endpoint=unix:///var/run/docker.sock"
+      # - "--docker.watch=true"
+      - "--providers.docker=true"
+      # - "--providers.docker.exposedbydefault=false"
+      # - "--providers.file=true"
+      # - "--providers.file.filename=/etc/traefik/rules.yml"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - ./rules.yml:/etc/traefik/rules.yml
+    labels:
+      - "traefik.enable=true"
+    restart: on-failure
+    networks:
+      - web
+
+  # whoami:
+  #   image: containous/whoami
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.whoami.rule=Host(`localhost`)"
+  #   networks:
+  #     - web
+
+networks:
+  web:
+    external: true
