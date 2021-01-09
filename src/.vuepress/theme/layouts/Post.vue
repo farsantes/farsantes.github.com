@@ -27,7 +27,17 @@
       <Content itemprop="articleBody" />
 
       <br />
-      <div id="supercomments"></div>
+      <Comments />
+
+      <!-- <div>
+        <iframe
+          class="frame"
+          src='data:text/html;charset=utf-8,<head><base target="_blank"></head><body><script type="text/javascript" src="https://www.reddit.com/r/politics/comments/kteyie/megathread_twitter_permanently_suspends.embed"></script></body>'
+          scrolling="yes"
+          frameborder="0"
+        >
+        </iframe>
+      </div> -->
 
       <v-divider style="margin-top: 30px; margin-bottom: 5px" />
 
@@ -43,48 +53,26 @@
 
 <script>
 import PostMeta from "@theme/components/PostMeta.vue";
+import Comments from "@theme/components/Comments.vue";
+// import reddit from "@theme/embedd/reddit";
 
 export default {
   components: {
     PostMeta,
+    Comments
   },
-  mounted() {
-    // https://github.com/supercomments/supercomments
-    var code = window.location.href.match(/.*#access_token=(.[^&]+)/);
-    var csrf = window.location.href.match(/.*&state=(.[^&]+)/);
-    var expires = window.location.href.match(/.*&expires_in=(.[^&]+)/);
-    if (code && csrf) {
-      window.opener.postMessage(
-        {
-          type: "RedditAuthenticated",
-          token: code[1],
-          state: csrf[1],
-          expires: expires[1],
-        },
-        "*"
-      );
-      window.close();
-    }
+  // async mounted() {
+  //   const embedd = reddit({
+  //     url:
+  //       "https://www.psypost.org/2020/12/study-links-regular-use-of-fox-news-twitter-and-facebook-to-reduced-knowledge-about-covid-19-58702",
+  //   });
+  //   console.log("embedd", embedd);
 
-    window.supercommentsConfig = {
-      url: window.location.href,
-      reddit: {
-        consumerKey: "3LNiyg9eV6L60g",
-        redirectUri: window.location.origin,
-      },
-      disqus: {
-        // identifier: [your_disqus_id_(optional)],
-        shortName: "farsantes",
-      },
-    };
-
-    var script = document.createElement("script");
-    if (script) {
-      // script.type = "text/javascript";
-      script.src = this.$withBase("/supercomments-embed.min.js");
-      document.head.appendChild(script);
-    }
-  },
+  //   const comments = embedd.getComments((err, data) => {
+  //     console.log("data", data);
+  //   });
+  //   console.log("comments", comments);
+  // },
 };
 </script>
 
@@ -114,5 +102,10 @@ export default {
   .post-title {
     margin-top: 0;
   }
+}
+
+.frame {
+  width: 100%;
+  border: none;
 }
 </style>

@@ -11,11 +11,16 @@
     "@vuepress/plugin-pwa": "^1.7.1",
     "@vuepress/plugin-search": "^1.7.1",
     "@vuepress/theme-blog": "^2.3.2",
+    "bourbon": "^7.0.0",
+    "embedd": "git+https://github.com/tgallant/embedd.git",
+    "neat": "^2.1.0",
     "supercomments": "^2.0.2",
     "vuepress": "^1.7.1",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.4",
+    "sass-loader": "^10.1.0"
   }
 }
