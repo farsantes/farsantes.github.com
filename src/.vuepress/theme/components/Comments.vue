@@ -2,6 +2,11 @@
   <section>
     <!-- class=" {{#config.both}}hasBtns{{/config.both}}" -->
 
+    <div class="buttons">
+      <img src="//i.imgur.com/I3JS7Ew.gif" />
+      Reddit
+    </div>
+
     <div class="info">
       <a
         v-if="!comments.length"
@@ -10,22 +15,13 @@
         class="no-comments"
         @click="firstComment"
       >
-        <h3>Súbelo a reddit para comentar!</h3>
+        <h3>Postéalo en reddit para poder comentar!</h3>
       </a>
     </div>
 
-    <div v-if="comments.length">
-      <div class="buttons">
-        <button class="reddit-btn button active">
-          <img src="//i.imgur.com/I3JS7Ew.gif" />
-          Reddit
-        </button>
-      </div>
-
-      <div class="comments">
-        <div v-for="comment in comments">
-          <Comment :comment="comment" />
-        </div>
+    <div class="comments">
+      <div v-for="comment in comments">
+        <Comment :comment="comment" />
       </div>
     </div>
   </section>

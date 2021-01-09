@@ -17,6 +17,11 @@ Regenta una empresa familiar agrícola dedicada a la venta de alimentos de la qu
 
 ### Declaraciones
 
-- "También le ponen [a la vacuna] ADN de fetos abortados."
+- "Con eso [el **MMS**] se soluciona en pocos días un **coronavirus**, un **ébola** en tres días o una **malaria** en horas”
+[redaccionmedica.com](https://redaccionmedica.com/secciones/sanidad-hoy/paimes-intenta-sacar-tajada-del-coronavirus-el-mms-lo-cura-en-dias--9382)
+
+- "También le ponen [a la vacuna] **ADN de fetos abortados**."
+[elperiodico.com](https://elperiodico.com/es/videos/sociedad/declaraciones-josep-pamies-argumenta-hay/4511417.shtml)
+
 - "[Todos los fetos abortados] los aprovechan para hacer vacunas"
-[elperiodico.com/es/videos/sociedad/declaraciones-josep-pamies-argumenta-hay/4511417.shtml](https://www.elperiodico.com/es/videos/sociedad/declaraciones-josep-pamies-argumenta-hay/4511417.shtml)
+[elperiodico.com](https://elperiodico.com/es/videos/sociedad/declaraciones-josep-pamies-argumenta-hay/4511417.shtml)

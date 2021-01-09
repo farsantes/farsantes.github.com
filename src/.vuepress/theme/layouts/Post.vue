@@ -26,6 +26,8 @@
 
       <Content itemprop="articleBody" />
 
+      <v-divider />
+
       <br />
       <Comments />
 
@@ -59,7 +61,7 @@ import Comments from "@theme/components/Comments.vue";
 export default {
   components: {
     PostMeta,
-    Comments
+    Comments,
   },
   // async mounted() {
   //   const embedd = reddit({
