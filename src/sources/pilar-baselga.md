@@ -1,0 +1,1 @@
+<!-- nomoriridiota.blogspot.com -->

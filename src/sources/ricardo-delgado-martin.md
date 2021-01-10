@@ -15,9 +15,17 @@ Postgrado **Biología sanitaria, microbiología clínica, epidemiología e Inmun
 No solo la universidad es de dudosa calidad:
 [economiadigital.es/directivos-y-empresas/el-lucrativo-negocio-de-los-master-on-line-1-000-euros-por-folletos-genericos-copiados-de-internet_165450_102.html](https://www.economiadigital.es/directivos-y-empresas/el-lucrativo-negocio-de-los-master-on-line-1-000-euros-por-folletos-genericos-copiados-de-internet_165450_102.html)
 
-El título carece de validez académica si no se tiene un grado o licenciatura universitaria.
+El título carece de validez académica porque no tiene ni grado ni licenciatura universitaria.
 
 ### Actividad:
 
 Tiene un canal de youtube llamado "La quinta columna". En su canal habla de temas como:
 - Conspiración conjunta del **5g** con la vacuna del **covid**
+
+<div style="text-align: center; margin: 30px 0;">
+  <img
+    src="https://click-to-vote.me/eK0M7Q.svg"
+    style="cursor: pointer"
+    onclick="window.open('https://click-to-vote.me/eK0M7Q')"
+  />
+</div>

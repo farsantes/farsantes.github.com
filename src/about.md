@@ -15,10 +15,9 @@ Todas las fuentes las obtengo de las teorías que cree y comparte mi família en
 ### Quien soy?
 
 Mi nombre es Oscar Gardiazabal, soy Arquitecto e Ingeniero de Software.
-<!-- Me gusta desarrollar herramientas que faciliten la vida de las personas y mejoren el mundo. -->
 
-<img :src="$withBase('/about.jpeg')">
+Puedes encontrar más sobre mí en [reddit.com](https://reddit.com/user/trollderiu/comments/kuf3aw/about)
 
 ### Código Abierto
 
-Esta página está realizada en Vuepress con Vuetify y el código está en [github.com/farsantes/farsantes.github.com](https://github.com/farsantes/farsantes.github.com) para quien quiera usarlo o colaborar.
+Esta página está realizada en Vuepress con Vuetify, y el código lo puedes encontrar en [github.com/farsantes/farsantes.github.com](https://github.com/farsantes/farsantes.github.com).
