@@ -16,7 +16,7 @@ Todas las fuentes las obtengo de las teorías que cree y comparte mi família en
 
 Mi nombre es Oscar Gardiazabal, soy Arquitecto e Ingeniero de Software.
 
-Puedes encontrar más sobre mí en [reddit.com](https://reddit.com/user/trollderiu/comments/kuf3aw/about)
+Puedes encontrar más sobre mí en [reddit.com](https://reddit.com/r/trollderiu/comments/kuf3aw/about)
 
 ### Código Abierto
 

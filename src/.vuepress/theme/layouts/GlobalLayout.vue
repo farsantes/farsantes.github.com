@@ -55,7 +55,7 @@
           href="https://github.com/farsantes/farsantes.github.com"
           target="_blank"
         >
-          Colabora
+          <!-- Colabora -->
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </div>
