@@ -6,7 +6,6 @@
     "nginx": "npm run build && npm run traefik && docker-compose up --build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
     "@mdi/font": "^5.8.55",
     "@vuepress/plugin-pwa": "^1.7.1",
     "@vuepress/plugin-search": "^1.7.1",
@@ -14,11 +13,11 @@
     "bourbon": "^7.0.0",
     "embedd": "git+https://github.com/tgallant/embedd.git",
     "neat": "^2.1.0",
-    "supercomments": "^2.0.2",
     "vuepress": "^1.7.1",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.8.0",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.4",
     "sass-loader": "^10.1.0"
