@@ -27,9 +27,9 @@ module.exports = () => {
           path: '/tag/',
         },
       ],
-      // globalPagination: {
-      //   lengthPerPage: 5,
-      // },
+      globalPagination: {
+        lengthPerPage: 999,
+      },
       feed: {
         feeds: {
           rss2: { enable: true },
@@ -60,9 +60,9 @@ module.exports = () => {
       ]
     },
     plugins,
-    define: {
-      THEME_BLOG_PAGINATION_COMPONENT: 'Pagination',
-    },
+    // define: {
+    //   THEME_BLOG_PAGINATION_COMPONENT: 'Pagination',
+    // },
     alias: {
       fonts: path.resolve(__dirname, 'fonts'),
     },
@@ -76,8 +76,7 @@ module.exports = () => {
             .trim()
             // .replace(/^#+\s+(.*)/, '')
             // .replace(/\s+(.*)/, '')
-            // .slice(0, 200)
-            .slice(0, 100)
+            .slice(0, 200)
         ) + ' ...'
       pageCtx.frontmatter.description = pageCtx.summary
 

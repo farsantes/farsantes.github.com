@@ -5,6 +5,15 @@
     itemscope
     itemtype="http://schema.org/Blog"
   >
+    <div v-show="'/' == $page.path" style="text-align: center; margin: 30px 0; color: grey;">
+      <b>Bienvenido a farsantes.github.io</b></br>
+      No podemos saber si una élite omnipotente nos domina,</br>
+      pero las mentiras tienen las patas muy cortas.</br>
+      Aquí añadimos a los farsantes para que no pierdas el tiempo con ellos.
+
+      <v-divider style="margin-top: 20px"/>
+    </div>
+
     <article
       v-for="page in pages"
       :key="page.key"
@@ -100,10 +109,10 @@
       </v-row>
     </article>
 
-    <component
+    <!-- <component
       :is="paginationComponent"
       v-if="$pagination.length > 1 && paginationComponent"
-    ></component>
+    ></component> -->
   </div>
 </template>
 
@@ -114,27 +123,26 @@ import Vue from "vue";
 import dayjs from "dayjs";
 import dayjsPluginUTC from "dayjs/plugin/utc";
 import { NavigationIcon, ClockIcon, TagIcon } from "vue-feather-icons";
-import {
-  Pagination,
-  SimplePagination,
-} from "@vuepress/plugin-blog/lib/client/components";
+// import {
+//   Pagination,
+//   SimplePagination,
+// } from "@vuepress/plugin-blog/lib/client/components";
 
 dayjs.extend(dayjsPluginUTC);
 
 export default {
   components: { NavigationIcon, ClockIcon, TagIcon },
-  data() {
-    return {
-      paginationComponent: null,
-    };
-  },
+  // data() {
+  //   return {
+  //     paginationComponent: null,
+  //   };
+  // },
   computed: {
     title() {
       const currentTag = this.$currentTag;
       return (currentTag && currentTag.scope) || "";
     },
     pages() {
-      // return this.$pagination.pages;
       return this.$pagination.pages
         .filter((p) => !!p.title)
         .sort((a, b) => {
@@ -155,31 +163,26 @@ export default {
             );
           }
 
-          return b.title.localeCompare(a.title);
+          return a.title.localeCompare(b.title);
         });
     },
   },
-  created() {
-    this.paginationComponent = this.getPaginationComponent();
-  },
+  // created() {
+  //   this.paginationComponent = this.getPaginationComponent();
+  // },
   methods: {
-    number(str) {
-      if (!str) return "";
-      const num = str.replace(/[^0-9]+/g, "");
-      return new Intl.NumberFormat().format(num);
-    },
-    getPaginationComponent() {
-      const n = THEME_BLOG_PAGINATION_COMPONENT;
-      if (n === "Pagination") {
-        return Pagination;
-      }
+    // getPaginationComponent() {
+    //   const n = THEME_BLOG_PAGINATION_COMPONENT;
+    //   if (n === "Pagination") {
+    //     return Pagination;
+    //   }
 
-      if (n === "SimplePagination") {
-        return SimplePagination;
-      }
+    //   if (n === "SimplePagination") {
+    //     return SimplePagination;
+    //   }
 
-      return Vue.component(n) || Pagination;
-    },
+    //   return Vue.component(n) || Pagination;
+    // },
     resolvePostDate(date) {
       return dayjs
         .utc(date)
@@ -232,6 +235,9 @@ export default {
   font-size: 14px;
   color: rgba($darkTextColor, 0.54);
   font-weight: 200;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .ui-post-meta {

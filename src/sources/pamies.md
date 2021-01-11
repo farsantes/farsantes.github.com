@@ -1,6 +1,6 @@
 ---
 image: /pamies.jpeg
-title: Pàmies
+title: Josep Pàmies
 audience: 330.000 (facebook) # https://www.facebook.com/aleixpamies/posts/728149144206603/
 tags: 
   - mms
