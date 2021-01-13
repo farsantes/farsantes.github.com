@@ -1,6 +1,6 @@
 import { decode, parseDate, embeddConstructor } from './embedd'
 
-export default function redditConstructor (spec) {
+export default function redditConstructor(spec) {
   if (!spec) { throw new Error('The Reddit constructor requires a spec object') }
 
   const { url, limit } = spec
@@ -13,6 +13,13 @@ export default function redditConstructor (spec) {
   embeddSpec.limit = limit
 
   embeddSpec.dataFmt = (response, cb) => {
+    if (!response.data && Array.isArray(response)) {
+      response = response[0];
+      // response = response[response.length - 1];
+    }
+
+    if (!response.data) console.log("!response.data", response);
+
     response.hits = response.data.children.map(x => {
       x = x.data
       return x

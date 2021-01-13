@@ -1,246 +1,234 @@
 /* global require, location,Text */
 
-import './scss/app.scss'
-import async from 'async'
-import mustache from 'mustache'
-import hnConstructor from './hn'
-import redditConstructor from './reddit'
+// import './scss/app.scss'
+// import async from 'async'
+// import mustache from 'mustache'
+// import redditConstructor from './reddit'
 
-const mainTemplate = require('./templates/main.html')
-const commentTemplate = require('./templates/comment.html')
+// const mainTemplate = require('./templates/main.html')
+// const commentTemplate = require('./templates/comment.html')
 
-function contextConstructor () {
-  let context = {}
+// function contextConstructor () {
+//   let context = {}
 
-  const script = document.currentScript
-  const parent = script.parentNode
-  const container = document.createElement('div')
+//   const script = document.currentScript
+//   const parent = script.parentNode
+//   const container = document.createElement('div')
 
-  context.config = {
-    element: container,
-    url: location.protocol + '//' + location.host + location.pathname,
-    dark: false,
-    service: 'reddit',
-    both: true,
-    loadMore: true,
-    infiniteScroll: false,
-    limit: 5,
-    debug: false
-  }
+//   context.config = {
+//     element: container,
+//     url: location.protocol + '//' + location.host + location.pathname,
+//     dark: false,
+//     service: 'reddit',
+//     both: true,
+//     loadMore: true,
+//     infiniteScroll: false,
+//     limit: 5,
+//     debug: false
+//   }
 
-  const userConfig = script.innerHTML.length > 0
-    ? JSON.parse(script.innerHTML.trim())
-    : {}
+//   const userConfig = script.innerHTML.length > 0
+//     ? JSON.parse(script.innerHTML.trim())
+//     : {}
 
-  context.config = extend(context.config, userConfig)
+//   context.config = extend(context.config, userConfig)
 
-  if (typeof context.config.element === 'string') {
-    context.config.element = document.querySelector(context.config.element)
-  }
+//   if (typeof context.config.element === 'string') {
+//     context.config.element = document.querySelector(context.config.element)
+//   }
 
-  context.config.element.className = 'embedd-container'
+//   context.config.element.className = 'embedd-container'
 
-  if (context.config.element === container) {
-    parent.insertBefore(container, script)
-  }
+//   if (context.config.element === container) {
+//     parent.insertBefore(container, script)
+//   }
 
-  if (context.config.loadMore && context.config.infiniteScroll) {
-    context.config.loadMore = false
-  }
+//   if (context.config.loadMore && context.config.infiniteScroll) {
+//     context.config.loadMore = false
+//   }
 
-  context.clients = {}
+//   context.clients = {
+//     reddit: redditConstructor(context.config)
+//   }
 
-  if (context.config.both) {
-    context.clients.reddit = redditConstructor(context.config)
-    context.clients.hn = hnConstructor(context.config)
-  }
+//   function extend (o1, o2) {
+//     const result = {}
 
-  if (!context.config.both && context.config.service === 'reddit') {
-    context.clients.reddit = redditConstructor(context.config)
-  }
+//     for (let key in o1) {
+//       result[key] = o1[key]
+//     }
+//     for (let key in o2) {
+//       result[key] = o2[key]
+//     }
 
-  if (!context.config.both && context.config.service === 'hn') {
-    context.clients.hn = hnConstructor(context.config)
-  }
+//     return result
+//   }
 
-  function extend (o1, o2) {
-    const result = {}
+//   function initListeners () {
+//     const hideButtons = [].slice.call(document.querySelectorAll('.embedd-container .hideChildrenBtn'))
+//     const redditBtn = document.querySelector('.embedd-container .reddit-btn')
+//     const hnBtn = document.querySelector('.embedd-container .hn-btn')
+//     const viewMoreBtns = [].slice.call(document.querySelectorAll('.embedd-container .viewMore'))
+//     const moreBtn = document.querySelector('.embedd-container .more-btn')
 
-    for (let key in o1) {
-      result[key] = o1[key]
-    }
-    for (let key in o2) {
-      result[key] = o2[key]
-    }
+//     hideButtons.forEach(x => {
+//       x.addEventListener('click', hideChildren, false)
+//     })
 
-    return result
-  }
+//     viewMoreBtns.forEach(x => {
+//       x.addEventListener('click', showMoreComments, false)
+//     })
 
-  function initListeners () {
-    const hideButtons = [].slice.call(document.querySelectorAll('.embedd-container .hideChildrenBtn'))
-    const redditBtn = document.querySelector('.embedd-container .reddit-btn')
-    const hnBtn = document.querySelector('.embedd-container .hn-btn')
-    const viewMoreBtns = [].slice.call(document.querySelectorAll('.embedd-container .viewMore'))
-    const moreBtn = document.querySelector('.embedd-container .more-btn')
+//     if (redditBtn) {
+//       redditBtn.addEventListener('click', () => {
+//         context.config.service = 'reddit'
+//         context.init()
+//       }, false)
+//     }
 
-    hideButtons.forEach(x => {
-      x.addEventListener('click', hideChildren, false)
-    })
+//     if (hnBtn) {
+//       hnBtn.addEventListener('click', () => {
+//         context.config.service = 'hn'
+//         context.init()
+//       }, false)
+//     }
 
-    viewMoreBtns.forEach(x => {
-      x.addEventListener('click', showMoreComments, false)
-    })
+//     if (moreBtn) {
+//       moreBtn.addEventListener('click', () => {
+//         renderMore(context)
+//       }, false)
+//     }
 
-    if (redditBtn) {
-      redditBtn.addEventListener('click', () => {
-        context.config.service = 'reddit'
-        context.init()
-      }, false)
-    }
+//     if (!context.config.loadMore && context.config.infiniteScroll) {
+//       window.addEventListener('scroll', loadOnScroll, false)
+//     }
+//   }
 
-    if (hnBtn) {
-      hnBtn.addEventListener('click', () => {
-        context.config.service = 'hn'
-        context.init()
-      }, false)
-    }
+//   function loadOnScroll () {
+//     const maxScroll = document.body.scrollHeight - window.innerHeight
+//     if (maxScroll - window.scrollY < 20) {
+//       window.removeEventListener('scroll', loadOnScroll, false)
+//       renderMore(context)
+//     }
+//   }
 
-    if (moreBtn) {
-      moreBtn.addEventListener('click', () => {
-        renderMore(context)
-      }, false)
-    }
+//   function renderHtml (obj) {
+//     const data = extend({}, obj)
+//     data.config = extend({}, obj.config)
 
-    if (!context.config.loadMore && context.config.infiniteScroll) {
-      window.addEventListener('scroll', loadOnScroll, false)
-    }
-  }
+//     data.redditActive = () => {
+//       return context.config.service === 'reddit'
+//     }
 
-  function loadOnScroll () {
-    const maxScroll = document.body.scrollHeight - window.innerHeight
-    if (maxScroll - window.scrollY < 20) {
-      window.removeEventListener('scroll', loadOnScroll, false)
-      renderMore(context)
-    }
-  }
+//     data.hnActive = () => {
+//       return context.config.service === 'hn'
+//     }
 
-  function renderHtml (obj) {
-    const data = extend({}, obj)
-    data.config = extend({}, obj.config)
+//     if (data.data.next.length === 0) {
+//       data.config.loadMore = false
+//     }
 
-    data.redditActive = () => {
-      return context.config.service === 'reddit'
-    }
+//     const html = mustache.render(mainTemplate, data, { comment: commentTemplate })
 
-    data.hnActive = () => {
-      return context.config.service === 'hn'
-    }
+//     if (context.config.debug) {
+//       console.log(data)
+//     }
 
-    if (data.data.next.length === 0) {
-      data.config.loadMore = false
-    }
+//     context.config.element.innerHTML = html
+//     initListeners()
+//   }
 
-    const html = mustache.render(mainTemplate, data, { comment: commentTemplate })
+//   function renderMore ({ data, config, redditActive }) {
+//     const template = '{{#comments}}{{> comment}}{{/comments}}'
+//     const element = document.querySelector('.embedd-container .comments')
 
-    if (context.config.debug) {
-      console.log(data)
-    }
+//     data.comments = data.next.slice(0, config.limit)
+//     data.next = data.next.slice(config.limit)
+//     data.config = config
+//     data.hasMore = !!data.next.length
 
-    context.config.element.innerHTML = html
-    initListeners()
-  }
+//     if (redditActive) {
+//       data.redditActive = redditActive
+//     }
 
-  function renderMore ({ data, config, redditActive }) {
-    const template = '{{#comments}}{{> comment}}{{/comments}}'
-    const element = document.querySelector('.embedd-container .comments')
+//     const html = mustache.render(template, data, { comment: commentTemplate })
+//     element.insertAdjacentHTML('beforeend', html)
 
-    data.comments = data.next.slice(0, config.limit)
-    data.next = data.next.slice(config.limit)
-    data.config = config
-    data.hasMore = !!data.next.length
+//     if (!data.hasMore) {
+//       const moreBtn = document.querySelector('.embedd-container .more-btn')
 
-    if (redditActive) {
-      data.redditActive = redditActive
-    }
+//       if (moreBtn) {
+//         moreBtn.style.display = 'none'
+//       } else {
+//         window.removeEventListener('scroll', loadOnScroll, false)
+//       }
+//     }
 
-    const html = mustache.render(template, data, { comment: commentTemplate })
-    element.insertAdjacentHTML('beforeend', html)
+//     initListeners()
+//   }
 
-    if (!data.hasMore) {
-      const moreBtn = document.querySelector('.embedd-container .more-btn')
+//   function hideChildren (e) {
+//     const el = e.target
+//     const parentComment = el.parentNode.parentNode.parentNode
 
-      if (moreBtn) {
-        moreBtn.style.display = 'none'
-      } else {
-        window.removeEventListener('scroll', loadOnScroll, false)
-      }
-    }
+//     parentComment.classList.toggle('closed')
+//   }
 
-    initListeners()
-  }
+//   function showMoreComments (e) {
+//     const el = e.currentTarget
+//     const parent = el.parentElement
+//     const comments = parent.querySelector('.children')
 
-  function hideChildren (e) {
-    const el = e.target
-    const parentComment = el.parentNode.parentNode.parentNode
+//     function showComment (c, count) {
+//       if (c && count !== 3) {
+//         if (c instanceof Text || getDisplayVal(c) === 'block') {
+//           showComment(c.nextSibling, count)
+//         } else {
+//           c.style.display = 'block'
+//           showComment(c.nextSibling, count + 1)
+//         }
+//       } else {
+//         parent.querySelector('.viewMore').style.display = 'none'
+//       }
+//     }
 
-    parentComment.classList.toggle('closed')
-  }
+//     showComment(comments.firstChild, 0)
+//   }
 
-  function showMoreComments (e) {
-    const el = e.currentTarget
-    const parent = el.parentElement
-    const comments = parent.querySelector('.children')
+//   function getDisplayVal (el) {
+//     if (el.currentStyle) {
+//       return el.currentStyle.display
+//     }
 
-    function showComment (c, count) {
-      if (c && count !== 3) {
-        if (c instanceof Text || getDisplayVal(c) === 'block') {
-          showComment(c.nextSibling, count)
-        } else {
-          c.style.display = 'block'
-          showComment(c.nextSibling, count + 1)
-        }
-      } else {
-        parent.querySelector('.viewMore').style.display = 'none'
-      }
-    }
+//     return window.getComputedStyle(el, null).getPropertyValue('display')
+//   }
 
-    showComment(comments.firstChild, 0)
-  }
+//   context.init = () => {
+//     const { reddit, hn } = context.clients
+//     const service = context.clients[context.config.service]
+//     const data = {}
 
-  function getDisplayVal (el) {
-    if (el.currentStyle) {
-      return el.currentStyle.display
-    }
+//     if (hn) {
+//       data.hasHn = hn.hasComments
+//     }
 
-    return window.getComputedStyle(el, null).getPropertyValue('display')
-  }
+//     if (reddit) {
+//       data.hasReddit = reddit.hasComments
+//     }
 
-  context.init = () => {
-    const { reddit, hn } = context.clients
-    const service = context.clients[context.config.service]
-    const data = {}
+//     data.data = service.getComments
 
-    if (hn) {
-      data.hasHn = hn.hasComments
-    }
+//     async.series(data, (err, result) => {
+//       if (err) { throw new Error(err) }
 
-    if (reddit) {
-      data.hasReddit = reddit.hasComments
-    }
+//       result.submitUrl = service.submitUrl
+//       context = extend(context, result)
+//       renderHtml(context)
+//     })
+//   }
 
-    data.data = service.getComments
+//   return context
+// }
 
-    async.series(data, (err, result) => {
-      if (err) { throw new Error(err) }
-
-      result.submitUrl = service.submitUrl
-      context = extend(context, result)
-      renderHtml(context)
-    })
-  }
-
-  return context
-}
-
-const context = contextConstructor()
-context.init()
+// const context = contextConstructor()
+// context.init()

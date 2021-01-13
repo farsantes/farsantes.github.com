@@ -1,7 +1,7 @@
 import async from 'async'
 import axios from 'axios'
 
-export function decode (html) {
+export function decode(html) {
   if (!html) { return false }
 
   const txt = document.createElement('textarea')
@@ -10,7 +10,7 @@ export function decode (html) {
   return txt.value
 }
 
-export function parseDate (unix) {
+export function parseDate(unix) {
   const now = new Date().getTime() / 1000
 
   if (!unix || unix > now) return false
@@ -30,7 +30,7 @@ export function parseDate (unix) {
   return 'a few seconds ago'
 }
 
-export function embeddConstructor (spec) {
+export function embeddConstructor(spec) {
   if (!spec) { throw new Error('No spec object has been specified') }
   if (!spec.submitUrl) { throw new Error('submitUrl isnt defined') }
   if (!spec.dataFmt) { throw new Error('dataFmt method isnt defined') }
@@ -41,7 +41,7 @@ export function embeddConstructor (spec) {
   const embedd = {}
   const cache = {}
 
-  function get (url, cb) {
+  function get(url, cb) {
     if (!url) { throw new Error('No URL has been specified') }
 
     if (cache[url]) {
@@ -52,10 +52,13 @@ export function embeddConstructor (spec) {
     axios.get(url).then(res => {
       cache[url] = res.data
       cb(null, res.data)
-    }).catch(cb)
+    }).catch(function (e) {
+      console.log("e", e)
+      cb()
+    })
   }
 
-  function threadUrl ({ sub, id }) {
+  function threadUrl({ sub, id }) {
     if (sub && id) {
       return spec.base + '/r/' + sub + '/comments/' + id + '.json'
     }
@@ -67,7 +70,7 @@ export function embeddConstructor (spec) {
     return false
   }
 
-  function getThreads (data, cb) {
+  function getThreads(data, cb) {
     const activeThreads = data.hits.filter(x => {
       return !!x.num_comments
     })
@@ -81,7 +84,7 @@ export function embeddConstructor (spec) {
     }, cb)
   }
 
-  function commentConstructor ({ comment, op, depth }) {
+  function commentConstructor({ comment, op, depth }) {
     const cdepth = depth || 0
     const c = spec.commentFmt(comment)
 
@@ -111,7 +114,7 @@ export function embeddConstructor (spec) {
     return c
   }
 
-  function parseComments (threads, cb) {
+  function parseComments(threads, cb) {
     const cs = threads.map(x => {
       const op = spec.threadFmt(x)
       const comments = op.children.reduce((arr, c) => {
@@ -126,7 +129,7 @@ export function embeddConstructor (spec) {
     cb(null, cs)
   }
 
-  function mergeComments (comments, cb) {
+  function mergeComments(comments, cb) {
     const merge = (score, arr, index) => {
       if (index > comments.length - 1) {
         return {

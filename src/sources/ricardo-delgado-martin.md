@@ -13,7 +13,7 @@ tags:
 Postgrado **Biología sanitaria, microbiología clínica, epidemiología e Inmunología** de la universidad online "Euroinnova Business School", una universidad de Granada basada en USA.
 
 No solo la universidad es de dudosa calidad:
-[economiadigital.es/directivos-y-empresas/el-lucrativo-negocio-de-los-master-on-line-1-000-euros-por-folletos-genericos-copiados-de-internet_165450_102.html](https://www.economiadigital.es/directivos-y-empresas/el-lucrativo-negocio-de-los-master-on-line-1-000-euros-por-folletos-genericos-copiados-de-internet_165450_102.html)
+[economiadigital.es/directivos-y-empresas/el-lucrativo-negocio-de-los-master-on-line-1-000-euros-por-folletos-genericos-copiados-de-internet_165450_102.html](economiadigital.es)
 
 El título carece de validez académica porque no tiene ni grado ni licenciatura universitaria.
 

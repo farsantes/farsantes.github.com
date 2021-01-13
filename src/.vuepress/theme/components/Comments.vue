@@ -3,8 +3,10 @@
     <!-- class=" {{#config.both}}hasBtns{{/config.both}}" -->
 
     <div class="buttons">
-      <img src="//i.imgur.com/I3JS7Ew.gif" />
-      Reddit
+      <div style="cursor: pointer" @click="openReddit">
+        <img src="//i.imgur.com/I3JS7Ew.gif" />
+        Reddit
+      </div>
     </div>
 
     <div class="info">
@@ -31,6 +33,8 @@
 import Comment from "@theme/components/Comment.vue";
 import reddit from "@theme/embedd/reddit";
 
+const origin = "https://farsantes.github.io";
+
 export default {
   name: "Comments",
   components: {
@@ -54,12 +58,15 @@ export default {
       const data = this.data;
       return (data && data.threads) || "";
     },
+    openRedditLink() {
+      const comments = this.comments;
+      if (!comments || !comments.length) return "";
+      return comments[0].permalink;
+    },
   },
   mounted() {
     const self = this;
-
-    const url = location.href;
-    // const url = "https://www.psypost.org/2020/12/study-links-regular-use-of-fox-news-twitter-and-facebook-to-reduced-knowledge-about-covid-19-58702";
+    const url = origin + location.pathname;
 
     const embedd = reddit({ url });
     console.log("embedd", embedd);
@@ -72,10 +79,14 @@ export default {
   },
   methods: {
     firstComment() {
-      const href = location.href;
+      const href = origin + location.pathname;
       const title = document.querySelector("title").innerText;
       const url = `https://reddit.com/r/Conspiraciones/submit?url=${href}&title=${title}`;
       window.open(url);
+    },
+    openReddit() {
+      const openRedditLink = this.openRedditLink;
+      window.open(openRedditLink);
     },
   },
 };
