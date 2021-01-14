@@ -1,5 +1,5 @@
 ---
-image: /chinda-brandolino.png
+image: /chinda-brandolino.jpg
 title: Chinda Brandolino
 audience: 1.300.000 (youtube GQ Radio)
 tags: 
