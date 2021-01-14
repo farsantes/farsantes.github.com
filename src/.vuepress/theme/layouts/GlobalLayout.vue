@@ -56,6 +56,7 @@
           target="_blank"
         >
           <!-- Colabora -->
+          Github
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </div>

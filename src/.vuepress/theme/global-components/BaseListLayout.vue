@@ -8,7 +8,7 @@
     <div v-show="'/' == $page.path" style="text-align: center; margin: 30px 0; color: grey;">
       <b>Bienvenido a farsantes.github.io</b></br>
       No podemos saber si una élite omnipotente nos domina,</br>
-      pero las mentiras tienen las patas muy cortas.</br>
+      pero sí sabemos que las mentiras tienen las patas muy cortas.</br>
       Aquí añadimos a los farsantes para que no pierdas el tiempo con ellos.
 
       <v-divider style="margin-top: 20px"/>
@@ -30,6 +30,7 @@
 
         <router-link :to="page.path">
           <v-img
+            v-if="page.frontmatter.image"
             :src="$withBase(page.frontmatter.image)"
             width="100px"
             height="100px"

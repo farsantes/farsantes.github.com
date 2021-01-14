@@ -20,4 +20,5 @@ Puedes encontrar más sobre mí en [reddit.com](https://reddit.com/r/trollderiu/
 
 ### Código Abierto
 
-Esta página está realizada en Vuepress con Vuetify, y el código lo puedes encontrar en [github.com/farsantes/farsantes.github.com](https://github.com/farsantes/farsantes.github.com).
+Quieres saber como está hecha esta página?
+Realizada en Vuepress con Vuetify el código lo puedes encontrar en [github.com/farsantes/farsantes.github.com](https://github.com/farsantes/farsantes.github.com).
