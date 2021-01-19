@@ -1,1 +1,0 @@
-<!-- - "nosotros mismos seamos un ser transgénico" -->

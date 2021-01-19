@@ -1,0 +1,25 @@
+version: "2.1"
+
+services:
+
+  traefik:
+    container_name: traefik
+    image: traefik:v2.2
+    command:
+      - "--api=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.enable=true"
+    restart: on-failure
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

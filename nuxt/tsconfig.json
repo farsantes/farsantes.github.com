@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    // https://stackoverflow.com/questions/59787574/typescript-tsconfig-settings-for-node-js-12/59787575#59787575
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "allowJs": true,
+    // "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "@types/node",
+      "@nuxt/types",
+      "vue-router/types",
+      "@types/google.analytics",
+    ],
+    // CUSTOM:
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "noImplicitReturns": false,
+    "pretty": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+  },
+  "exclude": [
+    "node_modules",
+    "./node_modules",
+    "./**/node_modules",
+    "**/node_modules"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.vue",
+    "./src/**/*.d.ts"
+  ]
+}

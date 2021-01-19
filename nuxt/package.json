@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "traefik": "docker ps --filter name=traefik -aq | xargs docker stop | xargs docker rm || true && docker-compose -f docker-compose-traefik.yml up --build -d",
+    "nginx": "npm run generate && npm run traefik && docker-compose up --build"
+  },
+  "dependencies": {
+    "@mdi/font": "^5.8.55",
+    "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/svg": "^0.1.12",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "axios": "^0.19.2",
+    "install": "^0.13.0",
+    "jsonp": "^0.2.1",
+    "localforage": "^1.9.0",
+    "markdown-it": "^12.0.4",
+    "npm": "^6.14.11",
+    "nuxt": "^2.14.12",
+    "snoowrap": "^1.22.0",
+    "vue-async-computed": "^3.8.2",
+    "vuetify": "^2.4.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.1",
+    "@nuxt/typescript": "^2.8.1",
+    "@nuxt/typescript-runtime": "^1.0.0",
+    "@types/google.analytics": "0.0.41",
+    "typescript": "^3.9.7",
+    "vue": "^2.6.12",
+    "vue-i18n": "^8.22.4",
+    "vue-router": "^3.4.9",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4",
+    "webpackbar": "^3.2.0"
+  }
+}

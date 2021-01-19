@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  farsantes.localhost:
+    image: nginx
+    volumes:
+      - ../:/usr/share/nginx/html:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.farsantes.rule=Host(`farsantes.localhost`)
+    restart: on-failure
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

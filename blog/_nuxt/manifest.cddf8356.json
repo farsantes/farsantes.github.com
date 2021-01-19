@@ -1,0 +1,9 @@
+{
+  "name": "",
+  "short_name": "",
+  "icons": [],
+  "start_url": "/blog/?standalone=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en"
+}

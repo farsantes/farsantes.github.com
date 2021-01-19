@@ -1,2 +1,0 @@
-<!-- osteopata -->
-<!-- vaccine modfifies DNA -->
