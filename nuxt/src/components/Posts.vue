@@ -8,13 +8,10 @@
       itemtype="https://schema.org/BlogPosting"
     >
       <v-row style="display: flex; flex-direction: row; padding: 12px">
-        <meta
-          itemprop="mainEntityOfPage"
-          :content="'/' + group + '/' + post.id"
-        />
+        <meta itemprop="mainEntityOfPage" :content="postLink(post)" />
 
         <div style="width: 100px; height: 100px; margin-right: 10px">
-          <router-link v-if="post.image" :to="'/' + group + '/' + post.id">
+          <router-link v-if="post.image" :to="postLink(post)">
             <v-img
               :src="post.image"
               width="100px"
@@ -35,9 +32,7 @@
             style="line-height: 1"
             itemprop="name headline"
           >
-            <router-link :to="'/' + group + '/' + post.id">{{
-              post.name
-            }}</router-link>
+            <router-link :to="postLink(post)">{{ post.name }}</router-link>
           </header>
 
           <div class="ui-post-summary" itemprop="description">
@@ -117,6 +112,18 @@ export default Vue.extend({
           // BY NAME
           return (a.name || "").localeCompare(b.name || "");
         });
+    },
+  },
+  methods: {
+    postLink(post): string {
+      const group = this.group;
+      const postName: string = post.name || "";
+      const name = postName
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/ +/g, "-");
+      return `/${group}/${post.id}/${name}`;
     },
   },
 });
