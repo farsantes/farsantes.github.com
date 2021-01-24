@@ -17,7 +17,9 @@ export default {
     "@nuxtjs/vuetify",
     // https://github.com/logaretm/nuxt-serverless-demo/blob/master/nuxt.config.js
     "@nuxtjs/pwa",
-    "@nuxtjs/svg"
+    '@/modules/generator',
+    '@nuxtjs/sitemap',
+    // https://dev.to/andynoir/sitemap-for-dynamic-routes-in-nuxtjs-4b96:
   ],
   vuetify: {
     defaultAssets: false,
@@ -35,6 +37,11 @@ export default {
     },
     // treeShake: isProduction || isHotfix || isBeta
     treeShake: true
+  },
+  sitemap: {
+    hostname: 'https://farsantes.github.io',
+    path: '../sitemap.xml',
+    gzip: true,
   },
   build: {
     analyze: {

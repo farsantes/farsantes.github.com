@@ -29,7 +29,7 @@ export default Vue.extend({
 <style scoped>
 .intro {
   text-align: center;
-  margin: 30px 0;
+  margin-bottom: 20px;
   color: grey;
 }
 </style>

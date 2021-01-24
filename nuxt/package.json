@@ -9,7 +9,7 @@
     "@mdi/font": "^5.8.55",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/pwa": "^3.3.4",
-    "@nuxtjs/svg": "^0.1.12",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/vuetify": "^1.11.3",
     "axios": "^0.19.2",
     "install": "^0.13.0",
