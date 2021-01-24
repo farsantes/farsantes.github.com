@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span v-for="tag in tags" :key="tag" style="padding: 10px">
+    <span v-for="tag in tags" :key="tag" style="padding: 5px; line-height: 45px;">
       <v-btn outlined :to="'/tags/' + tag">{{ tag }}</v-btn>
     </span>
   </div>
