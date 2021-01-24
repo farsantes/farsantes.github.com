@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate",
-    "traefik": "docker ps --filter name=traefik -aq | xargs docker stop | xargs docker rm || true && docker-compose -f docker-compose-traefik.yml up --build -d",
-    "nginx": "npm run generate && npm run traefik && docker-compose up --build"
+    "http": "http-server ../"
   },
   "dependencies": {
     "@mdi/font": "^5.8.55",
@@ -12,6 +11,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/vuetify": "^1.11.3",
     "axios": "^0.19.2",
+    "http-server": "^0.12.3",
     "install": "^0.13.0",
     "jsonp": "^0.2.1",
     "localforage": "^1.9.0",
