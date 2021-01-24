@@ -2,16 +2,30 @@
   <div id="page-explanation">
     <!-- <v-img v-if="image" :src="image" style="max-height: 300px" /> -->
     <h1 style="font-size: 26px">{{ title }}</h1>
-    <div v-html="markdown" />
 
-    <v-divider />
-
-    <div style="margin: 5px" @click="openReddit">
-      <a>Responder en Reddit</a>
+    <div class="ui-post-meta ui-post-tag" itemprop="keywords">
+      <v-icon small>mdi-tag-outline</v-icon>
+      <router-link
+        v-for="tag in tags"
+        :key="tag"
+        style="margin: 0 7px"
+        :to="'/tags/' + tag"
+        >{{ tag }}</router-link
+      >
     </div>
 
-    <div v-for="(comment, i) in redditComments" :key="i" class="comment">
-      <Comment :comment="comment.data" />
+    <div v-html="markdown" />
+
+    <div v-if="'tag' != group">
+      <v-divider />
+
+      <div style="margin: 5px" @click="openReddit">
+        <a>Responder en Reddit</a>
+      </div>
+
+      <div v-for="(comment, i) in redditComments" :key="i" class="comment">
+        <Comment :comment="comment.data" />
+      </div>
     </div>
   </div>
 </template>
@@ -91,6 +105,10 @@ export default Vue.extend({
       const post = this.post;
       return (post && post.image) || "";
     },
+    tags(): string[] {
+      const post = this.post;
+      return (post && post.tags) || [];
+    },
     title(): string {
       const post = this.post;
       const redditPost = this.redditPost;
@@ -104,7 +122,7 @@ export default Vue.extend({
 
       let selftext = redditPost.selftext;
       if (!selftext || !selftext.replaceAll) return "";
-      
+
       selftext = selftext.replaceAll("&amp;#x200B;", "");
 
       selftext = selftext.replaceAll(/(^|\n)\[/g, "![");

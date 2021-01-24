@@ -2,12 +2,15 @@
   <!-- style="max-width: 600px; margin: auto" -->
   <div>
     <article
-      v-for="post in posts"
+      v-for="(post, index) in posts"
       :key="post.name"
       itemscope
       itemtype="https://schema.org/BlogPosting"
     >
-      <v-row style="display: flex; flex-direction: row; padding: 12px">
+      <v-row
+        :class="{ explanation: 'tags' == group && 0 == index }"
+        style="display: flex; flex-direction: row; padding: 12px"
+      >
         <meta itemprop="mainEntityOfPage" :content="postLink(post)" />
 
         <div style="width: 100px; height: 100px; margin-right: 10px">
@@ -21,7 +24,6 @@
           </router-link>
         </div>
 
-        <!-- style="width: 100%" -->
         <div style="flex: 1; overflow: hidden; margin-top: 2px">
           <div v-show="'fuentes' == group" class="audience">
             Audiencia: {{ post.audience || "?" }}
@@ -42,12 +44,11 @@
           <footer>
             <!-- v-if="post.tags && post.tags.length" -->
             <div class="ui-post-meta ui-post-tag" itemprop="keywords">
-              <!-- <TagIcon /> -->
-              <v-icon small>mdi-tag-outline</v-icon>
+              <v-icon small style="margin-right: 7px">mdi-tag-outline</v-icon>
               <router-link
                 v-for="tag in post.tags"
                 :key="tag"
-                :to="'/tag/' + tag"
+                :to="'/tags/' + tag"
               >
                 {{ tag }}
               </router-link>
@@ -56,7 +57,7 @@
         </div>
       </v-row>
 
-      <v-divider style="margin: 20px 0" />
+      <v-divider style="margin: 11px 0" />
     </article>
   </div>
 </template>
@@ -69,6 +70,7 @@ export default Vue.extend({
   name: "Index",
   computed: {
     group(): string {
+      if (this.$route.params.tag) return "tags";
       return this.$route.params.group || "fuentes";
     },
     posts(): any[] {
@@ -208,14 +210,11 @@ svg {
   font-weight: 200;
 }
 .ui-post-tag a {
-  color: inherit;
+  /* color: inherit; */
   font-weight: 200;
   text-decoration: none;
-  margin-right: 5px;
+  margin-right: 8px;
 }
-/* .ui-post-tag a :hover {
-  color: $accentColor;
-} */
 
 .audience {
   color: grey;
@@ -226,7 +225,7 @@ svg {
   text-overflow: ellipsis;
 }
 
-.page_tag .post_explanations {
-  background-color: #e6e6e6;
+.explanation {
+  background: #e6e6e6;
 }
 </style>
