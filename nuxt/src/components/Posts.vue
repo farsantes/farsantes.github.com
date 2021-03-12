@@ -69,26 +69,35 @@ import postsStore from "@/store/posts";
 export default Vue.extend({
   name: "Index",
   computed: {
+    storePosts: () => postsStore.posts,
     group(): string {
-      if (this.$route.params.tag) return "tags";
+      // if (this.$route.params.tag) return "tags";
       return this.$route.params.group || "fuentes";
     },
+    tag(): string {
+      const route = this.$route;
+      return route.params.tag;
+    },
     posts(): any[] {
+      const storePosts = this.storePosts;
       const group = this.group;
+      const tag = this.tag;
 
-      const tag = this.$route.params.tag;
       if (tag) {
         const posts: any[] = [];
-        for (const g in postsStore.posts) {
-          const gPosts = postsStore.posts[g].filter(
-            (p) => p.id && p.tags.includes(tag)
-          );
+        for (const g in storePosts) {
+          const gPosts = storePosts[g].filter((p) => {
+            return p.id && p.tags.includes(tag);
+          });
+          for (const post of gPosts) {
+            post.group = g;
+          }
           posts.push(...gPosts);
         }
         return posts;
       }
 
-      const posts = postsStore.posts[group];
+      const posts = storePosts[group];
       if (!posts) {
         // this.$router.push("/");
         return [];
@@ -118,7 +127,7 @@ export default Vue.extend({
   },
   methods: {
     postLink(post): string {
-      const group = this.group;
+      const group = post.group || this.group;
       const postName: string = post.name || "";
       const name = postName
         .normalize("NFD")
