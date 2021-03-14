@@ -132,8 +132,15 @@ const fuentes = [
   },
   // { name: "Miguel Bose" },
   {
+    id: "m4t9ru",
+    name: "John Magufuli (Presidente de Tanzania)",
+    image: "https://preview.redd.it/618vzjxp7zm61.jpg?width=860&format=pjpg&auto=webp&s=ff309d131400c8f1ecee0a4fb04e18cea5fd3e80",
+    audience: "55.966.030 (Población Tanzania)",
+    tags: ["pcr-no-sirve"]
+  },
+  {
     id: "l0kxsx",
-    name: "Jsep Pàmies",
+    name: "Josep Pàmies",
     image: "https://preview.redd.it/71d327ryuac61.jpg?width=300&format=pjpg&auto=webp&s=51e8b1eaf5e2bd49a0028db90f06a616667867d4",
     audience: "330.000 (facebook)", //https://www.facebook.com/aleixpamies/posts/728149144206603/
     tags: ["mms", "vacunas-con-fetos"]
