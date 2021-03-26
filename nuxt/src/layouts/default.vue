@@ -12,7 +12,7 @@
         </v-btn>
       </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
       <v-autocomplete
         ref="search"
@@ -140,7 +140,7 @@ export default Vue.extend({
         await timeout(1);
         this.$refs.search.blur();
         this.page = "";
-        this.$router.push("/" + page);
+        this.$router.push(page);
       }
     },
   },

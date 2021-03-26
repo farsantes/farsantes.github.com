@@ -22,7 +22,7 @@
 
     <p>
       Todas las fuentes las obtengo de las teorías que cree y comparte mi
-      família en sus chats (sí, todas!).
+      família en sus chats.
     </p>
 
     <h2>Quien soy?</h2>

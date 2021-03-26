@@ -192,8 +192,9 @@ const confirmsStore = new Vue({
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
+        // .replace(/\?/g, "")
         .replace(/ +/g, "-");
-      return `/${group}/${post.id}/${name}/`;
+      return `/${group}/${post.id}/${name}`;
     },
   }
 });
