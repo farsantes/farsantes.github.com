@@ -193,7 +193,7 @@ const confirmsStore = new Vue({
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .replace(/ +/g, "-");
-      return `/${group}/${post.id}/${name}`;
+      return `/${group}/${post.id}/${name}/`;
     },
   }
 });
