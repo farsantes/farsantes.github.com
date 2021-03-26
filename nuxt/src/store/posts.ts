@@ -65,7 +65,7 @@ const explicaciones = [
 const fuentes = [
   // { name: "Alberto Zangrillo" }, //el médico de Berlusconi
   {
-    id: "l0l2iv",
+    id: "mdqotv",
     name: "Andreas Kalcker",
     description: "Medicina Alternativa y Biofísica Natural",
     image: "https://sdestendhal.com/wp-content/uploads/2019/05/El_MMS_Pegarle_un_poquito_a_la_lej%C3%ADa_no_cura_el_autismo.jpg",
