@@ -93,10 +93,11 @@
 
 <script lang="ts">
 import Vue from "@/libraries/vue";
-import {timeout} from "@/assets/js/utils";
+import { timeout } from "@/assets/js/utils";
 import postsStore from "@/store/posts";
 
 export default Vue.extend({
+  name: "LayoutDefault",
   data() {
     return {
       dialog: false,
@@ -104,6 +105,7 @@ export default Vue.extend({
     };
   },
   computed: {
+    posts: () => postsStore.posts,
     xs(): boolean {
       const vuetify = (this as any).$vuetify;
       return !!vuetify && !!vuetify.breakpoint.xs;
@@ -116,14 +118,15 @@ export default Vue.extend({
       ];
     },
     names(): string[] {
+      const posts = this.posts;
       const name: any[] = [];
 
-      for (const group in postsStore.posts) {
-        for (const post of postsStore.posts[group]) {
+      for (const group in posts) {
+        for (const post of posts[group]) {
           if (!post.id) continue;
           name.push({
             text: post.name,
-            value: `${group}/${post.id}`,
+            value: postsStore.postLink(post, group),
           });
         }
       }

@@ -128,13 +128,7 @@ export default Vue.extend({
   methods: {
     postLink(post): string {
       const group = post.group || this.group;
-      const postName: string = post.name || "";
-      const name = postName
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/ +/g, "-");
-      return `/${group}/${post.id}/${name}`;
+      return postsStore.postLink(post, group);
     },
   },
 });
