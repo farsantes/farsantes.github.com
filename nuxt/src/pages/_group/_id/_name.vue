@@ -31,10 +31,6 @@
 </template>
 
 <script lang="ts">
-// import snoowrap from "snoowrap";
-// import reddit from "@/assets/js/embedd/reddit";
-
-// import jsonp from "jsonp";
 import axios from "axios";
 import MarkdownIt from "markdown-it";
 import Vue from "@/libraries/vue";
@@ -55,7 +51,7 @@ export default Vue.extend({
       const articleReq = `https://api.reddit.com/comments/${params.id}`;
       console.log("articleReq", articleReq);
 
-      const articleResponse: any = await axios.get(articleReq);
+      const articleResponse = await axios.get(articleReq);
       const reddit = articleResponse && articleResponse.data;
 
       return { reddit };
@@ -70,7 +66,7 @@ export default Vue.extend({
       comments: [],
     };
     return data as typeof data & {
-      // reddit?: any;
+      asyncReddit?: any;
     };
   },
   computed: {
@@ -90,13 +86,13 @@ export default Vue.extend({
       return posts && posts.find((e) => e.id == id);
     },
     redditPost(): any {
-      const reddit = this.reddit;
+      const reddit = this.asyncReddit || this.reddit;
       const post = reddit && reddit[0];
       if (!post || !post.data.children[0]) return;
       return post.data.children[0].data;
     },
     redditComments(): any {
-      const reddit = this.reddit;
+      const reddit = this.asyncReddit || this.reddit;
       const post = reddit && reddit[1];
       if (!post) return;
       return post.data.children;
@@ -136,6 +132,15 @@ export default Vue.extend({
 
       // console.log("html", html);
       return html;
+    },
+  },
+  asyncComputed: {
+    // GET LAST UPDATE
+    async asyncReddit(): Promise<any> {
+      const id = this.id;
+      const articleReq = `https://api.reddit.com/comments/${id}`;
+      const articleResponse = await axios.get(articleReq);
+      return articleResponse && articleResponse.data;
     },
   },
   methods: {
