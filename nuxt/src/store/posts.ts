@@ -145,6 +145,18 @@ const fuentes = [
     audience: "330.000 (facebook)", //https://www.facebook.com/aleixpamies/posts/728149144206603/
     tags: ["mms", "vacunas-con-fetos"]
   },
+  {
+    id: "mj60g0",
+    name: "Marije Berkelaar",
+    audience: "380.000 (video facebook)", //https://www.facebook.com/marije.berkelaar/videos/2660544030643541/
+    tags: []
+  },
+  {
+    id: "mhxqxb",
+    name: "mentealternativa.com",
+    audience: "17.511 (facebook)", //https://www.facebook.com/mentealt
+    tags: []
+  },
   // { name: "Pilar Baselga" }, //nomoriridiota.blogspot.com
   {
     id: "l0kybl",
@@ -159,6 +171,13 @@ const fuentes = [
     image: "https://preview.redd.it/lth3k5lbvac61.png?width=678&format=png&auto=webp&s=e3c0007f57ac33cd42fefaf1ce95eca969c48118",
     audience: "137.000 (La Quinta Columna youtube video)",
     tags: ["covid-arma-biologica"] //5G-covid
+  },
+  {
+    id: "mhvqzr",
+    name: "Vernon Coleman",
+    image: "https://preview.redd.it/nze2xgy27kq61.jpg?width=194&format=pjpg&auto=webp&s=e60301ec802239aa28515fa61ed966cd2edc517e",
+    audience: "195.000 (suscritos canal youtube)",
+    tags: []
   },
 ]
 
