@@ -60,6 +60,12 @@ const explicaciones = [
     image: "https://preview.redd.it/h63jdlqwrac61.jpg?width=1280&format=pjpg&auto=webp&s=083f7f413bfce398f86f2dbfb11892e813bb9b7f",
     tags: ["vacunas-con-fetos"]
   },
+  {
+    id: "mlxfhu",
+    name: "Vacunas y Autismo",
+    image: "https://preview.redd.it/9lca09gkkpr61.png?width=3201&format=png&auto=webp&s=3583cfac6bd01a7f69073704cdb9c1e4c8551446",
+    tags: ["vacunas-autismo"]
+  },
 ];
 
 const fuentes = [
