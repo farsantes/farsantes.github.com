@@ -204,6 +204,13 @@ const fuentes = [
     tags: ["covid-arma-biologica"] //5G-covid
   },
   {
+    id: "mm4q0g",
+    name: "Steven Hotze",
+    // image: "",
+    // audience: "",
+    tags: []
+  },
+  {
     id: "mhvqzr",
     name: "Vernon Coleman",
     image: "https://preview.redd.it/nze2xgy27kq61.jpg?width=194&format=pjpg&auto=webp&s=e60301ec802239aa28515fa61ed966cd2edc517e",
