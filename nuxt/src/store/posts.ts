@@ -33,6 +33,12 @@ const explicaciones = [
     tags: ["control-del-bitcoin"]
   },
   {
+    id: "mlyvwm",
+    name: "Mercurio en Vacunas",
+    image: "https://preview.redd.it/fb6lf3208qr61.png?width=220&format=png&auto=webp&s=487656dbef5751ede7edbe078eea5412c52801f8",
+    tags: ["vacunas-autismo"]
+  },
+  {
     id: "l0kebv",
     name: "MMS",
     image: "https://preview.redd.it/0kmwd86eqac61.jpg?width=672&format=pjpg&auto=webp&s=a6d732de64622fb86e4e4dab3e7cfe4cc969153b",
@@ -55,6 +61,12 @@ const explicaciones = [
     name: "Es la tierra plana?",
     image: "https://preview.redd.it/ki8882dnrac61.jpg?width=1280&format=pjpg&auto=webp&s=dde2f76c044a77f40fce2073d91aa83e99d66ebb",
     tags: ["terraplanismo"]
+  },
+  {
+    id: "mm1e94",
+    name: "Vacunas del covid-19 han provocado decenas de enfermedades?",
+    // image: "",
+    tags: []
   },
   // https://chequeado.com/el-explicador/son-falsas-varias-afirmaciones-del-medico-luis-martinez-que-circulan-en-videos-virales/
   // https://chequeado.com/verificacionfb/es-falso-que-la-nueva-vacuna-contra-el-coronavirus-tiene-arn-digitalizable-que-se-activa-mediante-el-5g-y-puede-reactivar-el-virus/
@@ -85,6 +97,13 @@ const fuentes = [
     // audience: "5.885 (twitter)"",
     audience: "515.400 (youtube Misión Vida)",
     tags: ["mms"]
+  },
+  {
+    id: "mlxukg",
+    name: "Anthony Phan",
+    image: "https://preview.redd.it/cba1a9cmqpr61.jpg?width=1280&format=pjpg&auto=webp&s=78e97097874ae9fe1df2d30aef0ad7b6ff83bcfc",
+    audience: "300.000 (video youtube)",
+    tags: ["vacunas-autismo"]
   },
   // { name: "Bartomeu Payeras" }, //covid-5g
   // {
@@ -189,7 +208,7 @@ const fuentes = [
     name: "Vernon Coleman",
     image: "https://preview.redd.it/nze2xgy27kq61.jpg?width=194&format=pjpg&auto=webp&s=e60301ec802239aa28515fa61ed966cd2edc517e",
     audience: "195.000 (suscritos canal youtube)",
-    tags: []
+    tags: ["vacuna-covid-reducir-poblacion"]
   },
 ]
 
