@@ -3,6 +3,12 @@ import postsStore from "@/store/posts";
 
 const explicaciones = [
   {
+    id: "mlxm5k",
+    name: "Bill Gates y el autismo en Vietnam",
+    image: "https://preview.redd.it/mokfk17hdpr61.jpg?width=1280&format=pjpg&auto=webp&s=d6d6180b1cb667217348d5744ca9046222c54775",
+    tags: ["vacunas-autismo"]
+  },
+  {
     id: "kztr30",
     name: "Chemtrails",
     image: "https://preview.redd.it/b8gvrcvemac61.jpg?width=940&format=pjpg&auto=webp&s=19002e7c46012d57d5b046e65c5c9e1566ba8c49",
