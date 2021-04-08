@@ -121,7 +121,8 @@ export default Vue.extend({
 
       selftext = selftext.replaceAll("&amp;#x200B;", "");
 
-      selftext = selftext.replaceAll(/(^|\n)\[/g, "![");
+      selftext = selftext.replaceAll(/\[([^\]]+[^\n]+\.jpg|\.jpeg|\.png|\.svg[^\n]*)/g, "![$1");
+
       const replacePattern = /(^| )([a-zA-Z0-9\:\/\.\-\_]+(\.jpg|\.jpeg|\.png|\.svg).*)( |$)/gim;
       selftext = selftext.replace(replacePattern, "$1![]($2)$4");
 

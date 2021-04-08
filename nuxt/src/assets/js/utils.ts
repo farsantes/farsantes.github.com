@@ -207,11 +207,6 @@ export function getScript(src: string): Promise<any> {
   return SCRIPTS[src];
 }
 
-export function markdown(txt: string): string {
-  if (!txt) return "";
-  return txt.replace(/\*\*([^*]*)\*\*/g, "<b>$1</b>");
-};
-
 // https://stackoverflow.com/questions/49634850/javascript-convert-plain-text-links-to-clickable-links
 export function linkify(inputText: string): string {
 
@@ -233,18 +228,6 @@ export function linkify(inputText: string): string {
   );
 
   return inputText;
-}
-
-export function imagefy(inputText: string): string {
-  const replacePattern = /(^| )([a-zA-Z0-9\:\/\.\-\_]+(\.jpg|\.jpeg|\.png|\.svg))( |$)/gim;
-  return inputText.replace(replacePattern, '$1<img src="$2"/>$4');
-}
-
-export function scalefy(str: string, scale: number): string {
-  const regex = /(^| )~([0-9]+(\.[0-9]+)?)/gim;
-  return str.replace(regex, function (match, $1, $2, $3) {
-    return $1 + ($2 * scale) + $3;
-  });
 }
 
 export function headerAttr(headers?: Headers, headerName?: "cache-control", attr?: "max-age"): string | undefined {
