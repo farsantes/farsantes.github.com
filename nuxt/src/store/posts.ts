@@ -45,6 +45,12 @@ const explicaciones = [
     tags: ["mms"]
   },
   {
+    id: "mmjz55",
+    name: "Mosquito dron",
+    image: "https://preview.redd.it/oc7073tbhvr61.jpg?width=634&format=pjpg&auto=webp&s=a0bd92437fa945ef46122bc075b5c20e87e78a44",
+    tags: []
+  },
+  {
     id: "l0khgi",
     name: "Nieve de plástico?",
     image: "https://preview.redd.it/p6oc7vekqac61.jpg?width=1008&format=pjpg&auto=webp&s=2a5657acd71e06c3e2cb231aece1e8ce45082685",
