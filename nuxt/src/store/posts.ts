@@ -48,7 +48,7 @@ const explicaciones = [
     id: "mmjz55",
     name: "Mosquito dron",
     image: "https://preview.redd.it/oc7073tbhvr61.jpg?width=634&format=pjpg&auto=webp&s=a0bd92437fa945ef46122bc075b5c20e87e78a44",
-    tags: []
+    tags: ["bichos-dron"]
   },
   {
     id: "l0khgi",
@@ -72,7 +72,7 @@ const explicaciones = [
     id: "mm1e94",
     name: "Vacunas del covid-19 han provocado decenas de enfermedades?",
     // image: "",
-    tags: []
+    tags: ["vacuna-covid-enfermedades"]
   },
   // https://chequeado.com/el-explicador/son-falsas-varias-afirmaciones-del-medico-luis-martinez-que-circulan-en-videos-virales/
   // https://chequeado.com/verificacionfb/es-falso-que-la-nueva-vacuna-contra-el-coronavirus-tiene-arn-digitalizable-que-se-activa-mediante-el-5g-y-puede-reactivar-el-virus/
