@@ -116,11 +116,11 @@ export default Vue.extend({
       if (!redditPost) return "";
 
       let selftext = redditPost.selftext;
-      if (!selftext || !selftext.replaceAll) return "";
+      if (!selftext) return "";
 
-      selftext = selftext.replaceAll("&amp;#x200B;", "");
+      selftext = selftext.replace(/&amp;#x200B;/g, "");
 
-      selftext = selftext.replaceAll(
+      selftext = selftext.replace(
         /\[([^\]]+[^\n]+\.jpg|\.jpeg|\.png|\.svg[^\n]*)/g,
         "![$1"
       );
@@ -128,7 +128,7 @@ export default Vue.extend({
       const replacePattern = /(^| )([a-zA-Z0-9\:\/\.\-\_]+(\.jpg|\.jpeg|\.png|\.svg).*)( |$)/gim;
       selftext = selftext.replace(replacePattern, "$1![]($2)$4");
 
-      console.log("selftext", selftext);
+      // console.log("selftext", selftext);
 
       const md = new MarkdownIt();
       const html = md.render(selftext);
