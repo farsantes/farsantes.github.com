@@ -63,11 +63,10 @@ export default Vue.extend({
   data() {
     const data = {
       reddit: null as any | null,
+      asyncReddit: null as any | null,
       comments: [],
     };
-    return data as typeof data & {
-      asyncReddit?: any;
-    };
+    return data as typeof data & {};
   },
   computed: {
     group(): string {
@@ -121,7 +120,10 @@ export default Vue.extend({
 
       selftext = selftext.replaceAll("&amp;#x200B;", "");
 
-      selftext = selftext.replaceAll(/\[([^\]]+[^\n]+\.jpg|\.jpeg|\.png|\.svg[^\n]*)/g, "![$1");
+      selftext = selftext.replaceAll(
+        /\[([^\]]+[^\n]+\.jpg|\.jpeg|\.png|\.svg[^\n]*)/g,
+        "![$1"
+      );
 
       const replacePattern = /(^| )([a-zA-Z0-9\:\/\.\-\_]+(\.jpg|\.jpeg|\.png|\.svg).*)( |$)/gim;
       selftext = selftext.replace(replacePattern, "$1![]($2)$4");
@@ -135,14 +137,12 @@ export default Vue.extend({
       return html;
     },
   },
-  asyncComputed: {
-    // GET LAST UPDATE
-    async asyncReddit(): Promise<any> {
-      const id = this.id;
-      const articleReq = `https://api.reddit.com/comments/${id}`;
-      const articleResponse = await axios.get(articleReq);
-      return articleResponse && articleResponse.data;
-    },
+  async mounted() {
+    const id = this.id;
+    const articleReq = `https://api.reddit.com/comments/${id}`;
+    const articleResponse = await axios.get(articleReq);
+    const asyncReddit = articleResponse && articleResponse.data;
+    if (asyncReddit) this.asyncReddit = asyncReddit;
   },
   methods: {
     decode,
