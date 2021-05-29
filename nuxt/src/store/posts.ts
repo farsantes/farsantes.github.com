@@ -249,7 +249,7 @@ const confirmsStore = new Vue({
     },
   },
   methods: {
-    postLink(post, group: string): string {
+    postLink(post: { id, name }, group: string): string {
       const postName: string = post.name || "";
       const name = postName
         .normalize("NFD")

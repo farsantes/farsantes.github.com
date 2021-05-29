@@ -10,8 +10,9 @@
         :key="tag"
         style="margin: 0 7px"
         :to="'/tags/' + tag"
-        >{{ tag }}</router-link
       >
+        {{ tag }}
+      </router-link>
     </div>
 
     <div v-html="markdown" />
@@ -31,6 +32,7 @@
 </template>
 
 <script lang="ts">
+import { MetaInfo } from "vue-meta";
 import axios from "axios";
 import MarkdownIt from "markdown-it";
 import Vue from "@/libraries/vue";
@@ -136,6 +138,11 @@ export default Vue.extend({
       // console.log("html", html);
       return html;
     },
+    link(): string {
+      const group = this.group;
+      const post = this.post;
+      return postsStore.postLink(post, group);
+    },
   },
   async mounted() {
     const id = this.id;
@@ -152,6 +159,39 @@ export default Vue.extend({
       if (!id) return "";
       window.open("https://reddit.com/" + id);
     },
+  },
+  head(): MetaInfo {
+    const title = this.title;
+    const tags = this.tags;
+    const image = this.image;
+    const link = this.link;
+
+    return {
+      title,
+      link: [
+        {
+          rel: "canonical",
+          href: "https://farsantes.github.io/" + link,
+        },
+      ],
+      meta: [
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: tags.join(","),
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: image,
+        },
+      ],
+    };
   },
 });
 
