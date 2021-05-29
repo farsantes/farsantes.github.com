@@ -11,7 +11,7 @@
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/vuetify": "^1.11.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "http-server": "^0.12.3",
     "install": "^0.13.0",
     "jsonp": "^0.2.1",
