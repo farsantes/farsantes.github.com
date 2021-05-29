@@ -1,7 +1,9 @@
 <template>
-  <div id="page-explanation">
+  <article id="page-explanation" itemscope itemtype="http://schema.org/Article">
+    <meta itemprop="image" :content="image" />
     <!-- <v-img v-if="image" :src="image" style="max-height: 300px" /> -->
-    <h1 style="font-size: 26px">{{ title }}</h1>
+
+    <h1 style="font-size: 26px" itemprop="headline">{{ title }}</h1>
 
     <div class="ui-post-meta ui-post-tag" itemprop="keywords">
       <v-icon small>mdi-tag-outline</v-icon>
@@ -15,20 +17,24 @@
       </router-link>
     </div>
 
-    <div v-html="markdown" />
+    <div itemprop="articleBody" v-html="markdown" />
+
+    <div style="overflow: hidden">
+      <Share style="float: right" />
+    </div>
 
     <div v-if="'tag' != group">
       <v-divider />
 
-      <div style="margin: 5px" @click="openReddit">
-        <a>Responder en Reddit</a>
+      <div class="primary--text" style="margin: 5px; text-decoration: underline" @click="openReddit">
+        Responder en Reddit
       </div>
 
       <div v-for="(comment, i) in redditComments" :key="i" class="comment">
         <Comment :comment="comment.data" />
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script lang="ts">
@@ -37,6 +43,7 @@ import axios from "axios";
 import MarkdownIt from "markdown-it";
 import Vue from "@/libraries/vue";
 
+import Share from "@/components/Share.vue";
 import Comment from "@/components/Comment.vue";
 
 import postsStore from "@/store/posts";
@@ -44,6 +51,7 @@ import postsStore from "@/store/posts";
 export default Vue.extend({
   name: "Index",
   components: {
+    Share,
     Comment,
   },
   async asyncData({ params }) {
@@ -141,6 +149,7 @@ export default Vue.extend({
     link(): string {
       const group = this.group;
       const post = this.post;
+      if (!post || !group) return "";
       return postsStore.postLink(post, group);
     },
   },

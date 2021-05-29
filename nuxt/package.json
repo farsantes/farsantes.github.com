@@ -19,6 +19,7 @@
     "markdown-it": "^12.0.4",
     "npm": "^6.14.11",
     "nuxt": "^2.14.12",
+    "nuxt-i18n": "^6.27.0",
     "snoowrap": "^1.22.0",
     "vue-async-computed": "^3.8.2",
     "vuetify": "^2.4.0"

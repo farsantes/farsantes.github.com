@@ -12,6 +12,23 @@ export default {
     '@mdi/font/css/materialdesignicons.min.css',
     "@/assets/css/style.css"
   ],
+  modules: [
+    [
+      "nuxt-i18n",
+      {
+        locales: [{ code: "es", file: "es.js" }],
+        strategy: "no_prefix",
+        defaultLocale: "es",
+        lazy: true,
+        langDir: "lang/",
+        vueI18n: {
+          // silentTranslationWarn: true,
+          fallbackLocale: "es"
+        },
+        detectBrowserLanguage: false,
+      }
+    ]
+  ],
   buildModules: [
     "@nuxt/typescript-build",
     "@nuxtjs/vuetify",

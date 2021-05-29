@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar style="flex: 0">
       <v-toolbar-title>
-        <v-btn plain to="/">
+        <v-btn plain to="/" style="padding: 0">
           <div>
             farsantes
             <div style="color: gray; line-height: 1; font-size: 15px">
@@ -34,7 +34,7 @@
         </v-btn>
       </v-toolbar-items>
 
-      <v-app-bar-nav-icon v-else @click="dialog = true" />
+      <!-- <v-app-bar-nav-icon v-else @click="dialog = true" /> -->
     </v-app-bar>
 
     <v-main>
@@ -43,7 +43,7 @@
       </v-container>
     </v-main>
 
-    <v-footer>
+    <v-footer app absolute>
       <div style="display: inline-block; margin: auto">
         <v-btn plain to="/about">About Me</v-btn>
         <v-btn
@@ -51,15 +51,34 @@
           href="https://github.com/farsantes/farsantes.github.com"
           target="_blank"
         >
-          <!-- Colabora -->
           Github
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </div>
     </v-footer>
 
+    <v-bottom-navigation app fixed>
+      <!-- SOURCES -->
+      <v-btn to="/fuentes">
+        <span>Fuentes</span>
+        <v-icon>mdi-account-group</v-icon>
+      </v-btn>
+
+      <!-- EXPLANATIONS -->
+      <v-btn to="/explicaciones">
+        <span>Datos</span>
+        <v-icon>mdi-text-box-search-outline</v-icon>
+      </v-btn>
+
+      <!-- TAGS -->
+      <v-btn to="/tags">
+        <span>Tags</span>
+        <v-icon>mdi-tag-outline</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+
     <!-- MENU DIALOG: -->
-    <v-dialog
+    <!-- <v-dialog
       v-model="dialog"
       fullscreen
       hide-overlay
@@ -67,7 +86,6 @@
     >
       <v-card>
         <v-toolbar flat>
-          <!-- <v-toolbar-title>Menu</v-toolbar-title> -->
           <v-spacer></v-spacer>
           <v-btn icon @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -87,7 +105,7 @@
           </v-list-item>
         </v-list>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
   </v-app>
 </template>
 
