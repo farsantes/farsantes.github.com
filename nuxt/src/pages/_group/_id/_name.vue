@@ -17,7 +17,7 @@
       </router-link>
     </div>
 
-    <div itemprop="articleBody" v-html="markdown" />
+    <div itemprop="articleBody" style="text-align: justify" v-html="markdown" />
 
     <div style="overflow: hidden">
       <Share style="float: right" />
@@ -26,7 +26,11 @@
     <div v-if="'tag' != group">
       <v-divider />
 
-      <div class="primary--text" style="margin: 5px; text-decoration: underline" @click="openReddit">
+      <div
+        class="primary--text"
+        style="margin: 5px; text-decoration: underline"
+        @click="openReddit"
+      >
         Responder en Reddit
       </div>
 
